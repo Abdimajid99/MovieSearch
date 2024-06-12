@@ -1,0 +1,5 @@
+# cuz it has sensetive info
+.env
+
+# cuz it can be installed and recreated by just running 'npm intall' whenever you download the code from github.
+node_modules
