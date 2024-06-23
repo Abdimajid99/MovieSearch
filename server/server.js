@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
 
     const moviesList = await movies
       .find({ title: { $regex: "^" + title, $options: "i" } })
-      .limit(2)
+      .limit(20)
       .toArray();
 
     // console.log(moviesList);
@@ -63,17 +63,13 @@ app.listen(3001, () => {
 //
 
 //some notes:
-
 // //nodemon lib automatically restarts the server on save when changes are made to the file. we start nodemon by adding it as a start script in packages.json and running npm start
 
 // //mongoose is a library that makes connecting to and making queries to the mongodb database easier
-// //
-
-//
 //
 //
 
-// to construct a url and attach info to it you can:
+//// to construct a url and attach info to it you can:
 //1. route parameters
 // use url parameters, like you did in the ` /:id ` route/endpoint.
 // app.get("/:id", (req, res) => {
