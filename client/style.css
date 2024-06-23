@@ -52,6 +52,7 @@ form button {
   border-radius: 0.25rem;
   background-color: var(--font-color);
   color: var(--bg-color);
+  cursor: pointer;
 }
 
 /* 
@@ -76,6 +77,13 @@ form button {
   overflow: hidden;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: transform 0.3s;
+
+  animation: fade-in 2s;
+}
+
+.movies-container .movie:hover {
+  transform: scale(0.97);
 }
 
 .movie .image-wrapper {
@@ -96,4 +104,13 @@ form button {
 
 .movie .info span {
   font-weight: 700;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
