@@ -20,7 +20,6 @@ body {
 
 header {
   padding: 4rem;
-  border-bottom: 1px solid var(--font-color);
 }
 
 header form {
@@ -40,7 +39,7 @@ form label {
 }
 
 form input {
-  width: 50%;
+  width: min(120%, 25rem);
   padding: 0.6rem;
   background-color: var(--bg-color);
   border: 1.5px solid var(--font-color);
@@ -48,8 +47,8 @@ form input {
   color: var(--font-color);
 }
 
-form button {
-  all: unset;
+.btn {
+  border: none;
   font: inherit;
   font-weight: 600;
   padding: 0.4rem 1.25rem;
@@ -59,24 +58,38 @@ form button {
   cursor: pointer;
 }
 
-/* 
- */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 .movies-container {
+  width: min(65rem, 100%);
+  min-height: 25.125rem;
+  margin: 0 auto;
   padding: 3rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 3rem 1.5rem;
-  margin: 0 auto;
   background-color: var(--bg-color-2);
+  border-radius: 1rem;
+  position: relative;
+}
+
+.movies-container .loader {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  transform: translate(-50%, -50%);
 }
 
 .movies-container .movie {
-  width: 200px;
+  width: 218px;
   aspect-ratio: 1 / 1.4;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   background-color: var(--bg-color);
   overflow: hidden;
   border-radius: 0.5rem;
