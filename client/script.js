@@ -74,7 +74,9 @@ const displayMovieDetails = async function (id) {
   showSpinner(modal);
 
   try {
-    const res = await fetch(`http://localhost:3001/${id}`);
+    const res = await fetch(
+      `https://full-stack-movie-search-project-backend.onrender.com/${id}`
+    );
     const { title, poster, year, genres, plot, cast } = await res.json();
 
     //the onerror event listener is used to remove broken image icon in chrome.
@@ -120,7 +122,9 @@ formEle.addEventListener("submit", async (e) => {
 
   try {
     const searchedTitle = searchInput.value.trim();
-    const res = await fetch(`http://localhost:3001/?title=${searchedTitle}`);
+    const res = await fetch(
+      `https://full-stack-movie-search-project-backend.onrender.com/?title=${searchedTitle}`
+    );
     const movies = await res.json();
 
     movies.length > 0
