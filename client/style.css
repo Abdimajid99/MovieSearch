@@ -105,11 +105,30 @@ form input {
 
 .movie .image-wrapper {
   width: 100%;
+  height: 100%;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.movie .image-wrapper::before {
+  content: "Poster Not Found";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  z-index: -1;
 }
 
 .movie .image-wrapper img {
   width: 100%;
+  /* hides img alt text  when the image is broken*/
+  color: transparent;
 }
 
 .movie .info {

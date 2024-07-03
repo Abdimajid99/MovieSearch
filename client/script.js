@@ -37,13 +37,20 @@ const closeModal = () => {
 };
 modalOverlay.addEventListener("click", closeModal);
 
+const showSpinner = (element) =>
+  (element.innerHTML = `<span class="loader"></span>`);
+// const hideSpinner = (element) => (element.innerHTML = ``);
+
+//
+
 const displayMovies = function (movies) {
   moviesContainer.innerHTML = "";
 
   movies.forEach(({ _id, title, poster, year, imdb: { rating } }) => {
+    //the onerror event listener is used to remove broken image icon in chrome.
     const html = `
-    <div class="movie" title="${title}" id=${_id}>
-        <div class="image-wrapper"> <img src="${poster}" alt=" poster for the movie: ${title}"></div>
+    <div class="movie" title="${title}" onclick="displayMovieDetails('${_id}')">
+        <div class="image-wrapper"> <img  src="${poster}" alt="poster for the movie: ${title}" loading="lazy" onerror="this.style.display = 'none'"></div>
         <div class="info">
             <p class="title">${title} (${year})</p>
             <span>${rating}</span>
