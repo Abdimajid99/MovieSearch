@@ -3,8 +3,9 @@
 require("dotenv").config(); //this loads all the env variables from the .env file.
 
 //express setup
-const cors = require("cors");
 const express = require("express");
+const cors = require("cors");
+const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -20,15 +21,11 @@ app.get("/", async (req, res) => {
   try {
     const title = req.query.title;
 
-    // console.log(req.query);
-    // console.log(req.query.title);
-
     const moviesList = await movies
       .find({ title: { $regex: "^" + title, $options: "i" } })
       .limit(20)
       .toArray();
 
-    // console.log(moviesList);
     res.status(200).send(moviesList);
   } catch (err) {
     res.status(500).send(err);
@@ -44,29 +41,27 @@ app.get("/:id", async (req, res) => {
       _id: new ObjectId(id),
     });
 
-    // console.log(movie);
     res.status(200).send(movie);
   } catch (err) {
     res.status(500).send(err);
   }
-
-  //   await client.close();
 });
 
 // what's a port? https://thevalleyofcode.com/the-internet/2-what-is-a-port
-app.listen(3001, () => {
+app.listen(port, () => {
   console.log("server is running");
 });
 
 //
 //
 //
+//
+//
+//
 
 //some notes:
 // //nodemon lib automatically restarts the server on save when changes are made to the file. we start nodemon by adding it as a start script in packages.json and running npm start
-
 // //mongoose is a library that makes connecting to and making queries to the mongodb database easier
-//
 //
 
 //// to construct a url and attach info to it you can:
@@ -74,11 +69,17 @@ app.listen(3001, () => {
 // use url parameters, like you did in the ` /:id ` route/endpoint.
 // app.get("/:id", (req, res) => {
 //   const id = req.params.id; // the id sent by the frontend in the http request.
+
+// if url: https://example.com/1234
+// then req.params.id is 1234
 // });
 
 //2. use query parameters in the URL
 // app.get("/", (req, res) => {
 //   const id = req.query.id; // the id sent by the frontend in the http request.
+
+// if url: https://example.com/?id=1234
+// then req.query.id is 1234
 // });
 
 // in the frontend, use the URL constructor and use url.searchParams methods to get and set the search parameters on the url like you did in the '/' route.
