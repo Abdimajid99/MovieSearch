@@ -113,5 +113,23 @@ const displayMovieDetails = async function (id) {
 
 //
 
-  displayMovies(movies);
+formEle.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  searchBtn.disabled = true;
+  showSpinner(moviesContainer);
+
+  try {
+    const searchedTitle = searchInput.value.trim();
+    const res = await fetch(`http://localhost:3001/?title=${searchedTitle}`);
+    const movies = await res.json();
+
+    movies.length > 0
+      ? displayMovies(movies)
+      : (moviesContainer.innerHTML = `<p class="error">No Movies with The Title "${searchedTitle}" have been found </p>`);
+  } catch (error) {
+    moviesContainer.innerHTML =
+      "<p>An error has occurred. Please try again</p>";
+  }
+
+  searchBtn.disabled = false;
 });
