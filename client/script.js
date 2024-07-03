@@ -18,7 +18,24 @@
 
 const formEle = document.querySelector("form");
 const searchInput = document.querySelector("form input");
+const searchBtn = document.querySelector("form button");
 const moviesContainer = document.querySelector(".movies-container");
+
+const modalContainer = document.querySelector(".modal-container");
+const modalOverlay = document.querySelector(".modal-overlay");
+const modal = document.querySelector(".modal");
+
+const openModal = () => {
+  modalContainer.classList.add("open");
+  //disables body scroll when modal is open
+  document.body.style.overflowY = "hidden";
+};
+const closeModal = () => {
+  modalContainer.classList.remove("open");
+  //re-enables body scroll when modal is hidden
+  document.body.style.overflowY = "auto";
+};
+modalOverlay.addEventListener("click", closeModal);
 
 const displayMovies = function (movies) {
   moviesContainer.innerHTML = "";
