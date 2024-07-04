@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-
 :root {
   --bg-color: hsl(0, 0%, 13%);
   --bg-color-2: hsl(0, 0%, 5%);
@@ -7,7 +5,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: sans-serif;
   background-color: var(--bg-color);
   color: var(--font-color);
   max-width: 1300px;
