@@ -82,7 +82,7 @@ const displayMovieDetails = async function (id) {
     //the onerror event listener is used to remove broken image icon in chrome.
     const html = `
           <div class="modal">
-            <button id="close-btn" onclick="closeModal()">&#10006;</button>
+            <button id="close-btn" onclick="closeModal()">&times;</button>
             <div class="poster-wrapper">
                 <img src="${poster}" alt="${title}" class="poster" loading="lazy" onerror="this.style.display = 'none'">
             </div>
