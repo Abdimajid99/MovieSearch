@@ -324,6 +324,7 @@ form input {
   .modal {
     grid-template-columns: 1fr;
     height: 100vh;
+    height: 100%;
   }
   .poster-wrapper {
     margin: 0 auto;
