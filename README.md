@@ -58,3 +58,10 @@ To run this project locally, follow these steps:
 1. **Search for a movie**: Use the search bar on the homepage to find movies by title.
 2. **View movie details**: Click on a movie from the search results to view more information.
 
+## Lessons learned
+while building this project, I learned many things including:
+- Npm 
+- Node
+- Express 
+- MongoDB
+- Conventional commits
