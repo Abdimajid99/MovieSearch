@@ -2,6 +2,8 @@
 
 MovieSearch is a web application that allows users to search for movies and view detailed information about them. The website is built using HTML, CSS, and JavaScript for the frontend, while the backend is powered by Express.js and Node.js, with MongoDB as the database.
 
+[Live Site](https://moviesearch-project.vercel.app/)
+
 ## Features
 
 - **Search Movies**: Users can search for movies by title.
